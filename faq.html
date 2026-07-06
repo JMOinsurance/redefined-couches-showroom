@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q&amp;A — Redefined Couches</title>
+<style>
+  :root {
+    --cream: #faf6f0;
+    --walnut: #4a3728;
+    --walnut-dark: #2e2119;
+    --sage: #7c9473;
+    --sage-light: #e8efe4;
+    --tan: #d8c4a8;
+    --text: #3a2f28;
+    --muted: #8a7d70;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Georgia, 'Segoe UI', serif; background: var(--cream); color: var(--text); line-height: 1.6; }
+  .mockup-banner { background: #2b2b2b; color: #f0c419; text-align: center; padding: 8px 16px; font-family: -apple-system, sans-serif; font-size: 13px; }
+  .call-bar { background: var(--sage); color: white; text-align: center; padding: 10px 16px; font-family: -apple-system, sans-serif; font-size: 14px; }
+  .call-bar a { color: white; font-weight: bold; text-decoration: underline; margin-left: 4px; }
+  header { background: var(--walnut); color: var(--cream); padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .brand { font-size: 22px; font-weight: bold; text-decoration: none; color: var(--cream); }
+  .brand span { color: var(--tan); }
+  nav a { color: var(--cream); text-decoration: none; font-family: -apple-system, sans-serif; font-size: 14px; margin-left: 20px; }
+  nav a:hover { text-decoration: underline; }
+
+  .hero { text-align: center; padding: 44px 24px 30px; background: linear-gradient(180deg, var(--tan) 0%, var(--cream) 100%); }
+  .hero h1 { font-size: 30px; margin: 0 0 10px; color: var(--walnut-dark); }
+  .hero p { font-family: -apple-system, sans-serif; color: var(--muted); max-width: 620px; margin: 0 auto; font-size: 15px; }
+
+  .custom-order-banner { max-width: 800px; margin: 32px auto 8px; padding: 22px 26px; background: var(--sage-light); border-radius: 12px; text-align: center; }
+  .custom-order-banner h2 { font-size: 19px; color: var(--walnut-dark); margin: 0 0 8px; font-family: Georgia, serif; }
+  .custom-order-banner p { font-family: -apple-system, sans-serif; font-size: 14px; color: var(--text); margin: 0 0 14px; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .custom-order-banner a.cta-btn { display: inline-block; background: var(--walnut); color: var(--cream); text-decoration: none; padding: 11px 22px; border-radius: 8px; font-family: -apple-system, sans-serif; font-size: 14px; font-weight: bold; }
+  .custom-order-banner a.cta-btn:hover { background: var(--walnut-dark); }
+
+  .faq-list { max-width: 760px; margin: 36px auto 20px; padding: 0 24px; }
+  .faq-category { font-family: -apple-system, sans-serif; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 32px 0 12px; }
+  .faq-category:first-child { margin-top: 0; }
+  .faq-item { background: white; border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(74,55,40,.07); }
+  .faq-q { font-family: -apple-system, sans-serif; font-size: 15px; font-weight: bold; color: var(--walnut-dark); margin: 0 0 8px; }
+  .faq-a { font-family: -apple-system, sans-serif; font-size: 13.5px; color: var(--text); margin: 0; }
+
+  .cta-section { text-align: center; padding: 20px 24px 50px; }
+  .cta-btn { display: inline-block; background: var(--walnut); color: var(--cream); text-decoration: none; padding: 14px 28px; border-radius: 8px; font-family: -apple-system, sans-serif; font-size: 15px; font-weight: bold; }
+  .cta-btn:hover { background: var(--walnut-dark); }
+
+  footer { background: var(--walnut-dark); color: var(--cream); text-align: center; padding: 16px; font-family: -apple-system, sans-serif; font-size: 12.5px; }
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">🍩 DESIGN MOCKUP — Q&amp;A page, linked from the main showroom nav.</div>
+
+<div class="call-bar">📞 Call or Text Today: <a href="tel:+16366966645">(636) 696-6645</a> <span style="opacity:.85; font-size:12.5px;">· Most days 3–8pm</span></div>
+
+<header>
+  <a class="brand" href="index.html">Redefined <span>Couches</span></a>
+  <nav>
+    <a href="index.html">Showroom</a>
+    <a href="about.html">About Us</a>
+    <a href="faq.html">Q&amp;A</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Questions? We've got answers</h1>
+  <p style="font-family:-apple-system,sans-serif; font-size:12.5px; font-weight:bold; letter-spacing:.05em; text-transform:uppercase; color:var(--sage); margin-bottom:10px;">Serving the STL Metro Area</p>
+  <p>The things people ask us most, before they buy — washability, customizing your setup, custom orders, delivery, and more.</p>
+</div>
+
+<div class="custom-order-banner">
+  <h2>Don't see exactly what you want?</h2>
+  <p>Every showroom page only shows what we actually have in stock right now — but that's not always the full story. If you have a specific color, shape, or piece count in mind, reach out directly and we'll tell you what's possible.</p>
+  <a class="cta-btn" href="index.html#contact">Contact Us About a Custom Order →</a>
+  <p style="margin:12px 0 0; font-size:13px;">Or call/text us directly: <a href="tel:+16366966645" style="color:var(--walnut); font-weight:bold;">(636) 696-6645</a></p>
+</div>
+
+<div class="faq-list">
+
+  <div class="faq-category">Fabric &amp; Care</div>
+
+  <div class="faq-item">
+    <p class="faq-q">Is it really 100% washable?</p>
+    <p class="faq-a">The covers are. Every cushion cover unzips and goes straight into a standard washing machine — no dry cleaning, no special detergent. The foam and fill underneath the cover isn't washed directly; it's the removable fabric shell around it that's machine washable, which is what actually gets dirty day to day.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">What's the fabric like?</p>
+    <p class="faq-a">Depends on the line — our 121 and 140/120 setups use a soft cotton-and-linen or chenille blend, while 141 is wrapped in a thick wide-wale corduroy with more texture. Every listing tells you which fabric that specific setup uses.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Are the couches new or used?</p>
+    <p class="faq-a">Both — it varies by piece. We photograph the actual real inventory ourselves, so what you see in a listing is the true condition of that specific piece, not a stock photo. If something isn't brand new, we'll point that out before you buy, not after.</p>
+  </div>
+
+  <div class="faq-category">Configurations &amp; Custom Orders</div>
+
+  <div class="faq-item">
+    <p class="faq-q">Can I customize the color or shape?</p>
+    <p class="faq-a">Every line comes in a handful of configurations (L shapes, U shapes, ottomans, etc.) and a few real colors, and you can pick any combination that's currently in stock. If the exact setup you want isn't shown as available, message us — we can often tell you what's coming in or what's possible from current inventory.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Can I put in a custom order?</p>
+    <p class="faq-a">Yes. If you have a specific piece count, shape, or color in mind that isn't currently listed, call or text <a href="tel:+16366966645" style="color:var(--walnut); font-weight:bold;">(636) 696-6645</a> and we'll work with you on it — subject to what we can actually source. We'd rather have an honest conversation about what's realistic than promise something we can't deliver.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">What do "In Stock" and "Out of Stock" badges actually mean?</p>
+    <p class="faq-a">They reflect our real, current piece inventory for that exact shape and color — not an estimate. If a badge says out of stock, it means we don't currently have enough of the right pieces on hand to build it, though that can change quickly as new stock comes in.</p>
+  </div>
+
+  <div class="faq-category">Ordering &amp; Delivery</div>
+
+  <div class="faq-item">
+    <p class="faq-q">Can I buy directly through this website?</p>
+    <p class="faq-a">No — there's no online checkout. Every order is confirmed directly with Dawson or Grant by message or phone before anything changes hands. That's by design, so you always get a real person and a real answer before you commit.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Do you deliver, or is it pickup only?</p>
+    <p class="faq-a">Both. We deliver locally out of Festus and O'Fallon, MO (and beyond — just ask), or you can pick up in person, which is usually the cheaper option. We'll let you know which warehouse is closer once we hear from you.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">How fast can I actually get a couch?</p>
+    <p class="faq-a">Often same-day or next-day. We're a small, local operation, so scheduling a pickup or delivery usually comes down to your availability and ours, not a shipping calendar.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">What are your hours?</p>
+    <p class="faq-a">We're available most days from 3–8pm — that's the best window to call or text <a href="tel:+16366966645" style="color:var(--walnut); font-weight:bold;">(636) 696-6645</a> for the fastest response. Message us anytime and we'll get back to you as soon as we can.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Do you assemble it, or do I have to?</p>
+    <p class="faq-a">Every piece ships flat and self-assembly is simple — the sections just snap together, no tools required for most setups. On lines where we offer it, we can also assemble it for you for an added fee; check the specific listing's spec table for that line's terms.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">What payment methods do you accept?</p>
+    <p class="faq-a">Cash, Venmo, or CashApp. We don't currently offer financing.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">What's your return policy?</p>
+    <p class="faq-a">All sales are final — we don't accept returns. That's exactly why we photograph the real, actual piece and describe its true condition up front, and why we're happy to answer as many questions as you need before you buy. If something arrives different from what was described, message us directly and we'll make it right.</p>
+  </div>
+
+  <div class="faq-category">Photos &amp; Listings</div>
+
+  <div class="faq-item">
+    <p class="faq-q">Are all the photos real?</p>
+    <p class="faq-a">Mostly, yes — the majority are our own photos of our actual inventory, taken in the garage or driveway before it sells. A handful of listings still use a manufacturer stock photo where we haven't gotten our own picture yet, and we always label which is which right on the photo.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">What's the difference between your different lines (121, 141, 140, 120, 142)?</p>
+    <p class="faq-a">They're different builds and colorways — some use corner-and-middle pieces, others use left/right-facing pieces with a wedge connector, and each comes in its own set of colors. Visit our About page or browse the showroom to see how each one is built and what makes it different.</p>
+  </div>
+
+</div>
+
+<div class="cta-section">
+  <a class="cta-btn" href="index.html">Browse the Showroom →</a>
+</div>
+
+<footer>
+  Redefined Couches — locally owned, local delivery &amp; setup, out of Festus and O'Fallon, MO. No online purchases — every order is confirmed with us directly.
+</footer>
+
+</body>
+</html>
