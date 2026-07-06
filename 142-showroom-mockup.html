@@ -106,7 +106,19 @@
   /* --- Detail page --- */
   .detail-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; }
   @media (max-width: 760px) { .detail-layout { grid-template-columns: 1fr; } }
-  .detail-gallery-main { border-radius: 10px; overflow: hidden; margin-bottom: 8px; }
+  .detail-gallery-main { border-radius: 10px; overflow: hidden; margin-bottom: 8px; height: 360px; position: relative; }
+  .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,.45); color: #fff; border: none; font-size: 26px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; padding: 0; }
+  .gallery-arrow-prev { left: 10px; }
+  .gallery-arrow-next { right: 10px; }
+  .gallery-arrow:hover, .gallery-arrow:active { background: rgba(0,0,0,.65); }
+  .gallery-expand-hint { position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,.55); color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 20px; font-family: -apple-system, sans-serif; pointer-events: none; z-index: 2; }
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(20,14,10,.92); z-index: 60; align-items: center; justify-content: center; padding: 24px; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 92vw; max-height: 86vh; border-radius: 8px; object-fit: contain; }
+  .lightbox-close { position: absolute; top: 18px; right: 22px; color: #fff; font-family: -apple-system, sans-serif; font-size: 32px; cursor: pointer; line-height: 1; }
+  .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); color: #fff; font-size: 30px; font-family: -apple-system, sans-serif; cursor: pointer; padding: 8px 14px; user-select: none; background: rgba(255,255,255,.15); border-radius: 50%; }
+  .lightbox-prev { left: 12px; }
+  .lightbox-next { right: 12px; }
   .detail-gallery-main img, .detail-gallery-main .listing-photo-placeholder { height: 360px; }
   .detail-gallery-thumbs { display: flex; gap: 8px; }
   .detail-gallery-thumbs img, .detail-gallery-thumbs .thumb-placeholder { width: 70px; height: 54px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; }
@@ -239,6 +251,13 @@
 <footer>
   Redefined Couches — locally owned, local delivery &amp; setup, out of Festus and O'Fallon, MO. No online purchases — every order is confirmed with us directly.
 </footer>
+
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <span class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); stepLightbox(-1)">&#8249;</span>
+  <img id="lightbox-img" src="">
+  <span class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); stepLightbox(1)">&#8250;</span>
+</div>
 
 <script>
 // ===========================================================================
@@ -645,7 +664,10 @@ function renderGallery(cfg, color) {
     ? `Stock/reference photo ${photos.length > 1 ? `(${currentPhotoIndex + 1} of ${photos.length})` : ''} — ${cfg.name} in ${color.name} (manufacturer catalog image, not Dawson's own inventory shot — same product).`
     : `Our own photo ${photos.length > 1 ? `(${currentPhotoIndex + 1} of ${photos.length})` : ''} — real ${cfg.name} in ${color.name} (garage/driveway-photographed, this exact setup).`;
   const mainPhotoHtml = photos.length
-    ? `<img src="${current.src}" style="width:100%;height:100%;object-fit:cover;" alt="142 ${cfg.name} in ${color.name}">
+    ? `<img src="${current.src}" style="width:100%;height:100%;object-fit:cover;cursor:zoom-in;" onclick='openLightbox(${JSON.stringify(cfg.name)})' alt="142 ${cfg.name} in ${color.name}">
+       ${photos.length > 1 ? `<button type="button" class="gallery-arrow gallery-arrow-prev" onclick='navPhoto(${JSON.stringify(cfg.name)}, -1)' aria-label="Previous photo">&lsaquo;</button>
+       <button type="button" class="gallery-arrow gallery-arrow-next" onclick='navPhoto(${JSON.stringify(cfg.name)}, 1)' aria-label="Next photo">&rsaquo;</button>` : ''}
+       <span class="gallery-expand-hint">⤢ Tap photo for full view</span>
        <div class="hero-photo-credit">${creditText}</div>`
     : `<div class="listing-photo-placeholder" style="background:${color.hex};height:100%;">${noPhotoMessage(inStock, color.name)}</div>`;
   document.getElementById('detail-gallery-main').innerHTML = mainPhotoHtml;
@@ -661,6 +683,52 @@ function setPhotoIndex(configName, i) {
   const color = COLORS_142.find(c => c.key === selectedColor[cfg.name]);
   renderGallery(cfg, color);
 }
+
+function navPhoto(configName, dir) {
+  const cfg = MAIN_CONFIGS.concat(SMALL_CONFIGS).find(c => c.name === configName);
+  const color = COLORS_142.find(c => c.key === selectedColor[cfg.name]);
+  const photos = photosFor(cfg, color.key);
+  if (photos.length < 2) return;
+  currentPhotoIndex = (currentPhotoIndex + dir + photos.length) % photos.length;
+  renderGallery(cfg, color);
+}
+
+let lightboxConfigName = null;
+
+function openLightbox(configName) {
+  const cfg = MAIN_CONFIGS.concat(SMALL_CONFIGS).find(c => c.name === configName);
+  const color = COLORS_142.find(c => c.key === selectedColor[cfg.name]);
+  const photos = photosFor(cfg, color.key);
+  if (!photos.length) return;
+  lightboxConfigName = configName;
+  document.getElementById('lightbox-img').src = photos[currentPhotoIndex].src;
+  document.getElementById('lightbox').classList.add('open');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  lightboxConfigName = null;
+}
+
+function stepLightbox(dir) {
+  if (!lightboxConfigName) return;
+  navPhoto(lightboxConfigName, dir);
+  const cfg = MAIN_CONFIGS.concat(SMALL_CONFIGS).find(c => c.name === lightboxConfigName);
+  const color = COLORS_142.find(c => c.key === selectedColor[cfg.name]);
+  const photos = photosFor(cfg, color.key);
+  document.getElementById('lightbox-img').src = photos[currentPhotoIndex].src;
+}
+
+document.getElementById('lightbox').addEventListener('click', (e) => {
+  if (e.target.id === 'lightbox') closeLightbox();
+});
+document.addEventListener('keydown', (e) => {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') stepLightbox(-1);
+  if (e.key === 'ArrowRight') stepLightbox(1);
+});
 
 // --- Detail page ---
 function openDetail(configName) {
