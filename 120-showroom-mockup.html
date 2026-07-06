@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Redefined Couches — Showroom</title>
+<title>120 — Slipcover Lounge | Redefined Couches</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/icons/icon-192.png">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png">
@@ -83,6 +83,7 @@
   .filter-swatch-btn { display: inline-flex; align-items: center; gap: 6px; font-family: -apple-system, sans-serif; font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 20px; border: 1.5px solid var(--walnut); background: white; color: var(--walnut); cursor: pointer; }
   .filter-swatch-btn.selected { background: var(--walnut); color: white; }
   .filter-swatch-dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; border: 1px solid rgba(0,0,0,.15); }
+  .filter-bar-label { font-size: 12.5px; color: var(--muted); font-family: -apple-system, sans-serif; font-weight: bold; margin: 14px 0 6px; }
 
   .tally-row { display: flex; align-items: center; gap: 8px; margin: 4px 0; flex-wrap: wrap; }
   .tally-label { font-size: 11.5px; color: var(--muted); width: 78px; flex-shrink: 0; }
@@ -104,9 +105,9 @@
   .summary-card strong { color: var(--walnut); }
 
   /* --- Detail page --- */
-  .detail-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; }
+  .detail-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; } .detail-layout > div { min-width: 0; }
   @media (max-width: 760px) { .detail-layout { grid-template-columns: 1fr; } }
-  .detail-gallery-main { border-radius: 10px; overflow: hidden; margin-bottom: 8px; height: 360px; position: relative; }
+  .detail-gallery-main { border-radius: 10px; overflow: hidden; margin-bottom: 8px; height: 460px; position: relative; }
   .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,.45); color: #fff; border: none; font-size: 26px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; padding: 0; }
   .gallery-arrow-prev { left: 10px; }
   .gallery-arrow-next { right: 10px; }
@@ -119,10 +120,11 @@
   .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); color: #fff; font-size: 30px; font-family: -apple-system, sans-serif; cursor: pointer; padding: 8px 14px; user-select: none; background: rgba(255,255,255,.15); border-radius: 50%; }
   .lightbox-prev { left: 12px; }
   .lightbox-next { right: 12px; }
-  .detail-gallery-main img, .detail-gallery-main .listing-photo-placeholder { height: 360px; }
+  .detail-gallery-main img, .detail-gallery-main .listing-photo-placeholder { height: 460px; }
   .detail-gallery-thumbs { display: flex; gap: 8px; }
-  .detail-gallery-thumbs img, .detail-gallery-thumbs .thumb-placeholder { width: 70px; height: 54px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; }
+  .detail-gallery-thumbs img, .detail-gallery-thumbs .thumb-placeholder { width: 92px; height: 71px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; }
   .detail-gallery-thumbs .selected { border-color: var(--walnut); }
+  @media (max-width: 760px) { .detail-gallery-main, .detail-gallery-main img, .detail-gallery-main .listing-photo-placeholder { height: 480px; } .detail-gallery-thumbs img, .detail-gallery-thumbs .thumb-placeholder { width: 100px; height: 78px; } }
   .thumb-placeholder { display: flex; align-items: center; justify-content: center; background: #ccc; color: white; font-size: 9px; font-family: -apple-system, sans-serif; }
   .detail-info h2 { font-size: 24px; margin: 0 0 2px; font-family: -apple-system, sans-serif; }
   .detail-info .detail-sku { font-family: -apple-system, sans-serif; font-size: 12.5px; color: var(--muted); margin-bottom: 10px; }
@@ -164,15 +166,18 @@
 <div class="hero">
   <h1>Modular sectionals, built to fit your space</h1>
   <p>Search by name, color, or model number — or just browse below. Click any listing for more photos and details.</p>
+  <a class="back-link" href="index.html" style="margin-bottom:10px;">&larr; Back to Home</a>
   <div class="search-wrap">
     <input type="text" id="search-box" placeholder="Search &quot;120&quot;, &quot;black&quot;, &quot;big u&quot;..." oninput="applySearch()">
   </div>
   <div class="filter-swatch-bar" id="color-filter-bar"></div>
+  <div class="filter-bar-label">Other styles:</div>
+  <div class="filter-swatch-bar" id="other-styles-bar"><a class="filter-swatch-btn" href="121-showroom-mockup.html">121 — Tailored Cloud</a><a class="filter-swatch-btn" href="140-showroom-mockup.html">140 — Grand Lounge</a><a class="filter-swatch-btn" href="141-showroom-mockup.html">141 — Corduroy Cloud</a><a class="filter-swatch-btn" href="142-showroom-mockup.html">142 — Studio Classic</a><a class="filter-swatch-btn" href="151-showroom-mockup.html">151 — Power Reclining</a></div>
 </div>
 
 <!-- ============ BROWSE (flat catalog) ============ -->
 <div class="view active" id="view-browse">
-  <h2 class="section-title">120 - Cloud Sectional </h2>
+  <div class="browse-heading-row" style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;"><h2 class="section-title" style="margin:4px 0 4px;">120 — Slipcover Lounge</h2><a class="back-link" href="index.html" style="margin:0;">&larr; Back to Home</a></div>
   <div class="section-sub">Big U comes in Black, Beige, and White; Small L is Beige only right now. Tap a color dot on any card to check that color's stock for that specific setup.</div>
   <div class="listing-grid" id="main-listings"></div>
 
@@ -302,7 +307,7 @@ const IMG_SMALLL_BEIGE_8 = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2
 const SKU = '120';
 
 
-const STYLE_NAME = "Cloud Sectional";
+const STYLE_NAME = "Slipcover Lounge";
 
 // Dawson's own real photos (garage/driveway-photographed, his actual sold
 // inventory), embedded directly below so the page never depends on
@@ -627,7 +632,7 @@ function renderListingCard(cfg) {
       ${photoHtml}
       <div class="listing-body">
         <div class="listing-title">${cfg.name}</div>
-        <div class="listing-sku">120 - Cloud Sectional · ${color.name}</div>
+        <div class="listing-sku">120 — Slipcover Lounge · ${color.name}</div>
         <div class="listing-price">${price.amount ? '$' + price.amount.toLocaleString() : 'Price on request'}
           ${price.amount && !price.confirmed ? '<span class="price-note">Estimated — not yet confirmed by Dawson</span>' : ''}
           ${special ? '<span class="price-note">Flat price — pickup preferred, ships in the box, self-assembly only</span>' : ''}
@@ -767,7 +772,7 @@ function renderDetail(configName) {
   const special = hasSpecialTerms(cfg, color.key);
 
   document.getElementById('detail-title').textContent = `120 - ${cfg.name}`;
-  document.getElementById('detail-sku').textContent = `120 - Cloud Sectional · ${color.name}`;
+  document.getElementById('detail-sku').textContent = `120 — Slipcover Lounge · ${color.name}`;
   document.getElementById('detail-price').innerHTML = price.amount
     ? `$${price.amount.toLocaleString()}` + (!price.confirmed ? ` <span style="font-size:12px;font-weight:normal;color:var(--muted);">(estimated, not yet confirmed)</span>` : '')
     : 'Price on request';
@@ -831,7 +836,7 @@ function renderSummary() {
   const box = document.getElementById('summary-card');
   if (!lastInquiry) { box.style.display = 'none'; return; }
   box.style.display = 'block';
-  box.innerHTML = `You're asking about: <strong>120 - Cloud Sectional</strong>, <strong>${lastInquiry.color.name}</strong>, <strong>${lastInquiry.configName}</strong> setup`;
+  box.innerHTML = `You're asking about: <strong>120 — Slipcover Lounge</strong>, <strong>${lastInquiry.color.name}</strong>, <strong>${lastInquiry.configName}</strong> setup`;
 }
 
 function toggleZip() {
