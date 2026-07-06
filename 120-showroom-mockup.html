@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Redefined Couches — Showroom (mockup)</title>
+<title>Redefined Couches — Showroom</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png">
+<meta name="theme-color" content="#4a3728">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Couches">
 <script src="inventory-data.js"></script>
 <style>
   :root {
@@ -20,7 +27,7 @@
   body { margin: 0; font-family: Georgia, 'Segoe UI', serif; background: var(--cream); color: var(--text); line-height: 1.5; }
   .mockup-banner { background: #2b2b2b; color: #f0c419; text-align: center; padding: 8px 16px; font-family: -apple-system, sans-serif; font-size: 13px; }
   header { background: var(--walnut); color: var(--cream); padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-  .brand { font-size: 22px; font-weight: bold; }
+  .brand { font-size: 22px; font-weight: bold; text-decoration: none; color: var(--cream); }
   .brand span { color: var(--tan); }
   nav a { color: var(--cream); text-decoration: none; margin-left: 22px; font-family: -apple-system, sans-serif; font-size: 14px; cursor: pointer; border-bottom: 2px solid transparent; padding-bottom: 3px; }
   nav a.active, nav a:hover { border-bottom-color: var(--tan); }
@@ -132,12 +139,12 @@
 </head>
 <body>
 
-<div class="mockup-banner">🎨 DESIGN MOCKUP — search added, names updated, and clicking any listing now opens its own detail page.</div>
 
 <header>
-  <div class="brand">Redefined <span>Couches</span></div>
+  <a class="brand" href="index.html">Redefined <span>Couches</span></a>
   <nav>
-    <a class="active" id="nav-browse" onclick="goToView('browse')">Showroom</a>
+    <a href="index.html">All Styles</a>
+    <a class="active" id="nav-browse" onclick="goToView('browse')">This Line</a>
     <a id="nav-contact" onclick="goToView('contact')">Contact Us</a>
   </nav>
 </header>

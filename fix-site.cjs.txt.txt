@@ -1,0 +1,120 @@
+// One-time fixer script for the Redefined Couches showroom site.
+// Run this from inside your Website folder:
+//
+//     node fix-site.cjs
+//
+// What it does, to each page:
+//   1. Removes the yellow "DESIGN MOCKUP" banner that was showing at the top.
+//   2. Cleans up "(mockup)" out of the browser tab title.
+//   3. Adds the app-icon / "Add to Home Screen" tags (the icons/ folder
+//      should already exist next to these files with the real logo PNGs).
+//   4. Writes manifest.json (used by the "Add to Home Screen" icon tags).
+//   5. Fixes the "can't get back to the home page" bug on the 120/121/140/
+//      141/142 line pages — makes the "Redefined Couches" logo AND a new
+//      "All Styles" link in the header actually take you back to index.html.
+//
+// Safe to run more than once — it skips anything already fixed instead of
+// duplicating it.
+
+const fs = require('fs');
+const path = require('path');
+
+const FILES = [
+  'index.html',
+  'about.html',
+  'faq.html',
+  '120-showroom-mockup.html',
+  '121-showroom-mockup.html',
+  '140-showroom-mockup.html',
+  '141-showroom-mockup.html',
+  '142-showroom-mockup.html',
+  '151-showroom-mockup.html',
+];
+
+const PWA_HEAD = `<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png">
+<meta name="theme-color" content="#4a3728">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Couches">
+`;
+
+const MANIFEST = `{
+  "name": "Redefined Couches",
+  "short_name": "Couches",
+  "description": "Browse Redefined Couches sectional styles, colors, and availability.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#faf6f0",
+  "theme_color": "#4a3728",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }
+  ]
+}
+`;
+
+// Only the 5 tracked-line pages have the broken header (121-mockup etc.) —
+// index.html/about.html/faq.html/151 already link home correctly.
+const NAV_FIX_FILES = new Set([
+  '120-showroom-mockup.html',
+  '121-showroom-mockup.html',
+  '140-showroom-mockup.html',
+  '141-showroom-mockup.html',
+  '142-showroom-mockup.html',
+]);
+
+const OLD_BRAND_CSS = '.brand { font-size: 22px; font-weight: bold; }';
+const NEW_BRAND_CSS = '.brand { font-size: 22px; font-weight: bold; text-decoration: none; color: var(--cream); }';
+
+const OLD_HEADER = `<div class="brand">Redefined <span>Couches</span></div>
+  <nav>
+    <a class="active" id="nav-browse" onclick="goToView('browse')">Showroom</a>
+    <a id="nav-contact" onclick="goToView('contact')">Contact Us</a>
+  </nav>`;
+
+const NEW_HEADER = `<a class="brand" href="index.html">Redefined <span>Couches</span></a>
+  <nav>
+    <a href="index.html">All Styles</a>
+    <a class="active" id="nav-browse" onclick="goToView('browse')">This Line</a>
+    <a id="nav-contact" onclick="goToView('contact')">Contact Us</a>
+  </nav>`;
+
+let changedFiles = 0;
+
+for (const fname of FILES) {
+  const fpath = path.join(__dirname, fname);
+  if (!fs.existsSync(fpath)) {
+    console.log(`!! skipping ${fname} — not found in this folder`);
+    continue;
+  }
+  let content = fs.readFileSync(fpath, 'utf8');
+  const before = content;
+
+  content = content.replace(/\n?<div class="mockup-banner">.*?<\/div>\n?/, '\n');
+  content = content.replace('Showroom (mockup)', 'Showroom');
+
+  if (!content.includes('rel="manifest"')) {
+    content = content.replace(/<\/title>\n/, `</title>\n${PWA_HEAD}`);
+  }
+
+  if (NAV_FIX_FILES.has(fname) && content.includes(OLD_HEADER)) {
+    content = content.replace(OLD_BRAND_CSS, NEW_BRAND_CSS);
+    content = content.replace(OLD_HEADER, NEW_HEADER);
+  }
+
+  if (content !== before) {
+    fs.writeFileSync(fpath, content, 'utf8');
+    console.log(`fixed ${fname}`);
+    changedFiles++;
+  } else {
+    console.log(`${fname} — already up to date, nothing to change`);
+  }
+}
+
+fs.writeFileSync(path.join(__dirname, 'manifest.json'), MANIFEST, 'utf8');
+console.log('wrote manifest.json');
+
+console.log(`\nDone. ${changedFiles} page(s) updated.`);
+console.log('Next: make sure the icons/ folder (with the PNG files) is in this same folder, then commit + push.');
