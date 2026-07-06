@@ -12,6 +12,10 @@
 //   5. Fixes the "can't get back to the home page" bug on the 120/121/140/
 //      141/142 line pages — makes the "Redefined Couches" logo AND a new
 //      "All Styles" link in the header actually take you back to index.html.
+//   6. Adds a second, explicit "Back to Home" link right next to the
+//      existing "Back to showroom" link on the detail/contact views of
+//      those same 5 pages — so there's an obvious way home even before
+//      you notice the header link.
 //
 // Safe to run more than once — it skips anything already fixed instead of
 // duplicating it.
@@ -81,6 +85,9 @@ const NEW_HEADER = `<a class="brand" href="index.html">Redefined <span>Couches</
     <a id="nav-contact" onclick="goToView('contact')">Contact Us</a>
   </nav>`;
 
+const OLD_BACK_LINK = `<span class="back-link" onclick="goToView('browse')">&larr; Back to showroom</span>`;
+const NEW_BACK_LINK = `<span class="back-link" onclick="goToView('browse')">&larr; Back to showroom</span> <a class="back-link" href="index.html">&larr; Back to Home</a>`;
+
 let changedFiles = 0;
 
 for (const fname of FILES) {
@@ -107,6 +114,12 @@ for (const fname of FILES) {
   if (NAV_FIX_FILES.has(fname) && content.includes(OLD_HEADER)) {
     content = content.replace(OLD_BRAND_CSS, NEW_BRAND_CSS);
     content = content.replace(OLD_HEADER, NEW_HEADER);
+  }
+
+  // 6. Add an explicit "Back to Home" link next to "Back to showroom" on
+  // both the detail view and the contact view (2 occurrences per file).
+  if (NAV_FIX_FILES.has(fname) && content.includes(OLD_BACK_LINK) && !content.includes('Back to Home')) {
+    content = content.split(OLD_BACK_LINK).join(NEW_BACK_LINK);
   }
 
   if (content !== before) {
