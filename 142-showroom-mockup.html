@@ -230,27 +230,12 @@
     Our stock is split between <strong>Festus, MO</strong> and <strong>O'Fallon, MO</strong> — we'll let you know which is closer once we hear from you.
   </div>
 
-  <form class="lead-form" onsubmit="return false;">
-    <input class="honeypot" type="text" tabindex="-1" autocomplete="off">
-    <label>Name</label>
-    <input type="text" placeholder="Your name">
-    <label>Phone number</label>
-    <input type="tel" placeholder="(555) 555-5555">
-
-    <label>Pickup or delivery?</label>
-    <div class="fulfill-toggle">
-      <label><input type="radio" name="fulfill" value="pickup" checked onchange="toggleZip()"> Pickup</label>
-      <label><input type="radio" name="fulfill" value="delivery" onchange="toggleZip()"> Delivery ($100+)</label>
-    </div>
-    <div id="zip-wrap">
-      <label>Zip code (for delivery)</label>
-      <input type="text" placeholder="e.g. 63033" maxlength="10">
-    </div>
-
-    <label>Message</label>
-    <textarea placeholder="Anything else — timing, questions, etc."></textarea>
-    <button type="submit">Send Inquiry</button>
-  </form>
+  <div class="lead-form" style="text-align:center;">
+    <p style="font-size:15px;margin:0 0 14px;">Fastest way to grab a couch: <strong>text us</strong>. Tap below — the message writes itself, you just hit send.</p>
+    <a class="cta-btn wide" id="text-lead-btn" style="display:block;text-decoration:none;margin-top:0;" href="sms:+16366966645?&body=Hi%21%20I%20saw%20the%20142%20%E2%80%94%20Studio%20Classic%20couches%20online.%20What%27s%20available%3F">📱 Text Us About This Couch</a>
+    <a class="cta-btn wide" style="display:block;text-decoration:none;margin-top:10px;background:var(--sage);" href="tel:+16366966645">📞 Call (636) 696-6645</a>
+    <p style="font-family:-apple-system,sans-serif;font-size:12.5px;color:var(--muted);margin:14px 0 0;">Goes straight to our phone — no forms, no waiting. Available most days, 3–8pm.</p>
+  </div>
 </div>
 
 <footer>
@@ -802,6 +787,8 @@ function renderSummary() {
   if (!lastInquiry) { box.style.display = 'none'; return; }
   box.style.display = 'block';
   box.innerHTML = `You're asking about: <strong>142 — Studio Classic</strong>, <strong>${lastInquiry.color.name}</strong>, <strong>${lastInquiry.configName}</strong> setup`;
+  const textBtn = document.getElementById('text-lead-btn');
+  if (textBtn) textBtn.href = 'sms:+16366966645?&body=' + encodeURIComponent(`Hi! I'm interested in the 142 — Studio Classic ${lastInquiry.configName} in ${lastInquiry.color.name}. Is it available?`);
 }
 
 function toggleZip() {
