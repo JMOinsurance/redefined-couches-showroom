@@ -128,9 +128,9 @@ window.LIVE_INVENTORY = {
     }
   }
 };
-// Per-line config piece requirements, derived from PRESET_SEEDS in the ops
-// app. Every showroom page (home + product pages) reads these instead of
-// hardcoding its own copy, so a preset change propagates everywhere on next sync.
+// Per-line config piece requirements, derived from PRESET_SEEDS. Every
+// showroom page (home + product pages) reads these instead of hardcoding
+// its own copy, so a preset change here propagates everywhere on next sync.
 window.LIVE_CONFIG_REQUIREMENTS = {
   "120": {
     "Big U": {
@@ -248,4 +248,4 @@ window.LIVE_CONFIG_REQUIREMENTS = {
     }
   }
 };
-window.LIVE_INVENTORY_SYNCED_AT = "2026-07-09T21:14:07.345Z";
+window.LIVE_INVENTORY_SYNCED_AT = "2026-07-10T15:47:37.916Z";
