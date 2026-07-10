@@ -128,4 +128,124 @@ window.LIVE_INVENTORY = {
     }
   }
 };
-window.LIVE_INVENTORY_SYNCED_AT = "2026-07-10T12:16:14.822Z";
+// Per-line config piece requirements, derived from PRESET_SEEDS. Every
+// showroom page (home + product pages) reads these instead of hardcoding
+// its own copy, so a preset change here propagates everywhere on next sync.
+window.LIVE_CONFIG_REQUIREMENTS = {
+  "120": {
+    "Big U": {
+      "left": 1,
+      "right": 1,
+      "middle": 2,
+      "ottoman": 2
+    },
+    "Small L": {
+      "left": 1,
+      "right": 1,
+      "middle": 1,
+      "ottoman": 1,
+      "wedge": 1
+    }
+  },
+  "121": {
+    "Standard L with Ottoman": {
+      "corner": 3,
+      "middle": 2,
+      "ottoman": 1
+    },
+    "L with double ottoman": {
+      "corner": 3,
+      "middle": 2,
+      "ottoman": 2
+    },
+    "L": {
+      "corner": 3,
+      "middle": 2,
+      "ottoman": 0
+    },
+    "Small U": {
+      "corner": 2,
+      "middle": 3,
+      "ottoman": 1
+    },
+    "Big U": {
+      "corner": 2,
+      "middle": 2,
+      "ottoman": 2
+    },
+    "Ultra": {
+      "corner": 2,
+      "middle": 4,
+      "ottoman": 2
+    }
+  },
+  "140": {
+    "Standard L": {
+      "left": 1,
+      "right": 1,
+      "middle": 2,
+      "ottoman": 1,
+      "wedge": 1
+    },
+    "L": {
+      "left": 1,
+      "right": 1,
+      "middle": 2,
+      "ottoman": 0,
+      "wedge": 1
+    },
+    "Big U": {
+      "left": 1,
+      "right": 1,
+      "middle": 2,
+      "ottoman": 2
+    },
+    "Small L": {
+      "left": 1,
+      "right": 1,
+      "middle": 1,
+      "ottoman": 1,
+      "wedge": 1
+    }
+  },
+  "141": {
+    "Standard L with Ottoman": {
+      "corner": 3,
+      "middle": 2,
+      "ottoman": 1
+    },
+    "3 Seater with double ottoman": {
+      "corner": 3,
+      "middle": 2,
+      "ottoman": 2
+    },
+    "L": {
+      "corner": 3,
+      "middle": 2,
+      "ottoman": 0
+    },
+    "Small U": {
+      "corner": 2,
+      "middle": 3,
+      "ottoman": 1
+    },
+    "Big U": {
+      "corner": 2,
+      "middle": 2,
+      "ottoman": 2
+    },
+    "Ultra": {
+      "corner": 2,
+      "middle": 4,
+      "ottoman": 2
+    }
+  },
+  "142": {
+    "Standard L with Ottoman": {
+      "corner": 3,
+      "middle": 2,
+      "ottoman": 1
+    }
+  }
+};
+window.LIVE_INVENTORY_SYNCED_AT = "2026-07-10T15:47:37.916Z";
