@@ -367,6 +367,15 @@ function computeStock(counts, colorKey) {
 const MAIN_CONFIGS = [
   { name: 'Standard L with Ottoman', counts: { corner: 3, middle: 2, ottoman: 1 } },
 ];
+
+// Prefer centrally-synced requirements (window.LIVE_CONFIG_REQUIREMENTS, from
+// inventory-data.js) over the baked counts above, so a preset change in the ops
+// app propagates here on the next sync. Falls back to the baked counts if the
+// sync file is missing or doesn't list a given config.
+(function () {
+  const req = (window.LIVE_CONFIG_REQUIREMENTS && window.LIVE_CONFIG_REQUIREMENTS['142']) || null;
+  if (req) for (const cfg of MAIN_CONFIGS) if (req[cfg.name]) cfg.counts = req[cfg.name];
+})();
 // Small L is gone entirely (Dawson: "remove small L i dont have anything for
 // this for 142 series") — not even kept as a hidden placeholder, since
 // there's no real photo and no plan to source one.

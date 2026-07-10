@@ -382,6 +382,15 @@ const MAIN_CONFIGS = [
   { name: 'Big U', counts: { left: 1, right: 1, middle: 2, ottoman: 2 } },
   { name: 'Small L', counts: { left: 1, right: 1, middle: 1, ottoman: 1, wedge: 1 } },
 ];
+
+// Prefer centrally-synced requirements (window.LIVE_CONFIG_REQUIREMENTS, from
+// inventory-data.js) over the baked counts above, so a preset change in the ops
+// app propagates here on the next sync. Falls back to the baked counts if the
+// sync file is missing or doesn't list a given config.
+(function () {
+  const req = (window.LIVE_CONFIG_REQUIREMENTS && window.LIVE_CONFIG_REQUIREMENTS['120']) || null;
+  if (req) for (const cfg of MAIN_CONFIGS) if (req[cfg.name]) cfg.counts = req[cfg.name];
+})();
 // "Standard L" and "L" both have real photo folders on Dawson's laptop, but
 // every color in both folders is just a single stock/catalog photo — no
 // real garage shot, and no matching real inventory either. Per Dawson's
