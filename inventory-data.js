@@ -34,8 +34,8 @@ window.LIVE_INVENTORY = {
   "121": {
     "white": {
       "corner": 6,
-      "middle": 2,
-      "ottoman": 2
+      "middle": 4,
+      "ottoman": 3
     },
     "black": {
       "corner": 4,
@@ -248,4 +248,4 @@ window.LIVE_CONFIG_REQUIREMENTS = {
     }
   }
 };
-window.LIVE_INVENTORY_SYNCED_AT = "2026-07-11T20:21:30.323Z";
+window.LIVE_INVENTORY_SYNCED_AT = "2026-07-11T20:29:42.293Z";
