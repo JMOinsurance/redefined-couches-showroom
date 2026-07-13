@@ -96,7 +96,7 @@ window.LIVE_INVENTORY = {
     },
     "beige": {
       "corner": 2,
-      "middle": 3,
+      "middle": 4,
       "ottoman": 2
     },
     "tan": {
@@ -248,4 +248,4 @@ window.LIVE_CONFIG_REQUIREMENTS = {
     }
   }
 };
-window.LIVE_INVENTORY_SYNCED_AT = "2026-07-13T03:51:47.050Z";
+window.LIVE_INVENTORY_SYNCED_AT = "2026-07-13T03:53:26.083Z";
