@@ -48,9 +48,9 @@ window.LIVE_INVENTORY = {
       "ottoman": 2
     },
     "khaki": {
-      "corner": 7,
-      "middle": 3,
-      "ottoman": 3
+      "corner": 4,
+      "middle": 1,
+      "ottoman": 2
     }
   },
   "140": {
@@ -248,4 +248,4 @@ window.LIVE_CONFIG_REQUIREMENTS = {
     }
   }
 };
-window.LIVE_INVENTORY_SYNCED_AT = "2026-07-16T15:29:50.771Z";
+window.LIVE_INVENTORY_SYNCED_AT = "2026-07-16T15:40:18.274Z";
