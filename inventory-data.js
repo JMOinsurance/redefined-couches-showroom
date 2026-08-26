@@ -48,9 +48,9 @@ window.LIVE_INVENTORY = {
       "ottoman": 0
     },
     "khaki": {
-      "corner": 5,
-      "middle": 4,
-      "ottoman": 2
+      "corner": 2,
+      "middle": 2,
+      "ottoman": 1
     }
   },
   "140": {
@@ -100,8 +100,8 @@ window.LIVE_INVENTORY = {
       "ottoman": 2
     },
     "tan": {
-      "corner": 2,
-      "middle": 3,
+      "corner": 0,
+      "middle": 0,
       "ottoman": 0
     }
   },
@@ -248,4 +248,4 @@ window.LIVE_CONFIG_REQUIREMENTS = {
     }
   }
 };
-window.LIVE_INVENTORY_SYNCED_AT = "2026-08-26T20:30:17.029Z";
+window.LIVE_INVENTORY_SYNCED_AT = "2026-08-26T23:58:11.177Z";
