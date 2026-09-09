@@ -57,7 +57,7 @@ window.LIVE_INVENTORY = {
     "black": {
       "left": 0,
       "right": 1,
-      "middle": 2,
+      "middle": 3,
       "ottoman": 0,
       "wedge": 0
     },
@@ -100,8 +100,8 @@ window.LIVE_INVENTORY = {
       "ottoman": 2
     },
     "tan": {
-      "corner": 0,
-      "middle": 0,
+      "corner": 2,
+      "middle": 3,
       "ottoman": 0
     }
   },
@@ -112,13 +112,13 @@ window.LIVE_INVENTORY = {
       "ottoman": 0
     },
     "black": {
-      "corner": 1,
-      "middle": 1,
+      "corner": 0,
+      "middle": 0,
       "ottoman": 0
     },
     "beige": {
       "corner": 0,
-      "middle": 1,
+      "middle": 0,
       "ottoman": 0
     },
     "khaki": {
@@ -248,4 +248,4 @@ window.LIVE_CONFIG_REQUIREMENTS = {
     }
   }
 };
-window.LIVE_INVENTORY_SYNCED_AT = "2026-09-09T19:51:07.862Z";
+window.LIVE_INVENTORY_SYNCED_AT = "2026-09-09T22:00:09.947Z";
