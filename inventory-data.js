@@ -48,46 +48,46 @@ window.LIVE_INVENTORY = {
       "ottoman": 0
     },
     "khaki": {
-      "corner": 2,
-      "middle": 3,
-      "ottoman": 1
+      "corner": 5,
+      "middle": 5,
+      "ottoman": 2
     }
   },
   "140": {
     "black": {
-      "left": 0,
-      "right": 1,
-      "middle": 3,
-      "ottoman": 0,
+      "left": 1,
+      "right": 2,
+      "middle": 5,
+      "ottoman": 1,
       "wedge": 0
     },
     "grey": {
-      "left": 0,
-      "right": 0,
-      "middle": 2,
-      "ottoman": 2,
-      "wedge": 0
-    },
-    "white": {
       "left": 1,
       "right": 1,
       "middle": 2,
-      "ottoman": 1,
-      "wedge": 1
+      "ottoman": 3,
+      "wedge": 0
+    },
+    "white": {
+      "left": 3,
+      "right": 3,
+      "middle": 6,
+      "ottoman": 3,
+      "wedge": 3
     },
     "khaki": {
-      "left": 0,
-      "right": 0,
-      "middle": 2,
-      "ottoman": 1,
-      "wedge": 1
+      "left": 1,
+      "right": 1,
+      "middle": 3,
+      "ottoman": 2,
+      "wedge": 2
     }
   },
   "141": {
     "black": {
-      "corner": 0,
-      "middle": 1,
-      "ottoman": 0
+      "corner": 3,
+      "middle": 2,
+      "ottoman": 1
     },
     "grey": {
       "corner": 4,
@@ -248,4 +248,4 @@ window.LIVE_CONFIG_REQUIREMENTS = {
     }
   }
 };
-window.LIVE_INVENTORY_SYNCED_AT = "2026-09-12T19:24:47.961Z";
+window.LIVE_INVENTORY_SYNCED_AT = "2026-09-12T21:30:11.360Z";
